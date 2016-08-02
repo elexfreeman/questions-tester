@@ -1,0 +1,14 @@
+.error
+{
+    color:red;
+}
+
+.user-item a
+{
+	color: inherit;
+}
+
+.task-edit-button.user-edit
+{
+    color:#fff;
+}
