@@ -30,33 +30,8 @@ class Questions_model extends CI_Model
     /*Добавляет данные в модель*/
     public function add($arg)
     {
-        if(isset($arg['date_start']))
-        {
-            $arg['date_start'] = strtotime( $arg['date_start'] );
-            $arg['date_start'] = date( 'Y-m-d H:i:s', $arg['date_start'] );
-        }
-
-        $video='';
-
-        if(((isset($_FILES['video']['name'])))and($_FILES['video']['name']!=''))
-        {
-            $rnd=$this->elex->PassGen();
-            $uploadfile = $this->config->item('video_dir') . $rnd.'_'.basename($_FILES['video']['name']);
-
-            $video = $rnd.'_'.basename($_FILES['video']['name']);
-
-            if (move_uploaded_file($_FILES['video']['tmp_name'],$uploadfile))
-            {
-                /*здесь можно сжать видос*/
-            }
-            else
-            {
-                //error
-            }
-        }
 
         $arg['lecture_id']=(int)$arg['lecture_id'];
-
 
         $query = "INSERT INTO ".$this->LectureTestsTable."(`id`,`question`,`lecture_id`,`answer1`,`answer2`,`answer3`,`answer4`,`right_answer`)
         VALUES
@@ -69,14 +44,11 @@ class Questions_model extends CI_Model
         ,".$this->dbMySQL->escape($arg['answer4'])."
         ,".$this->dbMySQL->escape($arg['right_answer'])."
 
-
         )";
 
         $this->dbMySQL->query($query);
 
         return $this->dbMySQL->insert_id();
-
-
     }
 
     /*Обновляет данные по модели*/

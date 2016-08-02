@@ -198,7 +198,26 @@ class Courses extends CI_Controller {
     /*редактирование вопроса тестирования*/
     function QuestionEdit($course_id,$lecture_id,$question_id)
     {
+        if((isset($_POST['action']))and($_POST['action']=='question_add'))
+        {
+            $this->lectures_model->update($_POST);
+            header('Location: '.base_url('courses/'.$course_id));
+            exit;
+        }
 
+        $this->data['course_id']=$course_id;
+        $this->data['lecture_id']=$lecture_id;
+        $this->data['course'] = $this->courses_model->Get($course_id);
+        $this->data['lecture'] = $this->lectures_model->Get($course_id,$lecture_id);
+
+
+        $this->load->view('head', $this->data);
+
+        $this->load->view('navbar/navbar', $this->data);
+
+        /*шаблон страницы*/
+        $this->load->view('questions/edit', $this->data);
+        $this->load->view('footer', $this->data);
     }
 
 
