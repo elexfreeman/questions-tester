@@ -529,4 +529,5 @@ $config['UsersTable'] = 'users';
 $config['GroupsTable'] = 'groups';
 $config['CoursesTable'] = 'courses';
 $config['LecturesTable'] = 'lectures';
+$config['LectureTestsTable'] = 'lecture_tests';
 

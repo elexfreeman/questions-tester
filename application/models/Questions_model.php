@@ -22,6 +22,7 @@ class Questions_model extends CI_Model
         $this->UserTasksTable=$this->config->item('UserTasksTable');
         $this->CoursesTable=$this->config->item('CoursesTable');
         $this->LecturesTable=$this->config->item('LecturesTable');
+        $this->LectureTestsTable=$this->config->item('LectureTestsTable');
     }
 
 
