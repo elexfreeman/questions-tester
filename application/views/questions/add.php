@@ -13,6 +13,7 @@
         <form class="w-clearfix" id="email-form-5" name="email-form-5">
             <input type="hidden" name="lecture_id" value="<?php echo $lecture_id;?>">
             <input type="hidden" name="course_id" value="<?php echo $course_id;?>">
+            <input type="hidden" name="action" value="question_add">
             <label for="question-text">Текст вопроса:</label>
             <textarea class="question-text w-input" id="question" maxlength="5000" name="question"></textarea>
 

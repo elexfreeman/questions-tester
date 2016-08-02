@@ -173,6 +173,13 @@ class Courses extends CI_Controller {
     /*Добавление вопроса тестирования к лекции*/
     function QuestionAdd($course_id,$lecture_id)
     {
+        if((isset($_POST['action']))and($_POST['action']=='question_add'))
+        {
+            $this->lectures_model->update($_POST);
+            header('Location: '.base_url('courses/'.$course_id));
+            exit;
+        }
+
         $this->data['course_id']=$course_id;
         $this->data['lecture_id']=$lecture_id;
         $this->data['course'] = $this->courses_model->Get($course_id);
