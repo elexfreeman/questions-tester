@@ -172,7 +172,14 @@ class Courses extends CI_Controller {
     /*Добавление вопроса тестирования к лекции*/
     function QuestionAdd($lecture_id)
     {
+        $this->data['lecture_id']=$lecture_id;
+        $this->load->view('head', $this->data);
 
+        $this->load->view('navbar/navbar', $this->data);
+
+        /*шаблон страницы*/
+        $this->load->view('questions/add', $this->data);
+        $this->load->view('footer', $this->data);
     }
 
     /*редактирование вопроса тестирования*/

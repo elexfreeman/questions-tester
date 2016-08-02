@@ -3,6 +3,7 @@
 
     <div class="w-form">
         <form class="w-clearfix" id="email-form-5" name="email-form-5">
+            <input type="hidden" name="lecture_id" value="<?php echo $lecture_id;?>">
             <label for="question-text">Текст вопроса:</label>
             <textarea class="question-text w-input" id="question-text" maxlength="5000" name="question-text"></textarea>
 
