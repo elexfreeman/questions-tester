@@ -55,19 +55,21 @@ class Questions_model extends CI_Model
             }
         }
 
-        $arg['course_id']=(int)$arg['course_id'];
-        $arg['order_number']=(int)$arg['order_number'];
+        $arg['lecture_id']=(int)$arg['lecture_id'];
 
-        $query = "INSERT INTO ".$this->LecturesTable."(`id`,`caption`,`description`,`date_start`,`video`,`course_id`,`order_number`)
+
+        $query = "INSERT INTO ".$this->LectureTestsTable."(`id`,`question`,`lecture_id`,`answer1`,`answer2`,`answer3`,`answer4`,`right_answer`)
         VALUES
         (NULL
-        ,".$this->dbMySQL->escape($arg['caption'])."
+        ,".$this->dbMySQL->escape($arg['question'])."
+        ,".$this->dbMySQL->escape($arg['lecture_id'])."
+        ,".$this->dbMySQL->escape($arg['answer1'])."
+        ,".$this->dbMySQL->escape($arg['answer2'])."
+        ,".$this->dbMySQL->escape($arg['answer3'])."
+        ,".$this->dbMySQL->escape($arg['answer4'])."
+        ,".$this->dbMySQL->escape($arg['right_answer'])."
 
-        ,".$this->dbMySQL->escape($arg['description'])."
-        ,'".$arg['date_start']."'
-        ,'".$video."'
-        ,".$this->dbMySQL->escape($arg['course_id'])."
-        ,'".$arg['order_number']."'
+
         )";
 
         $this->dbMySQL->query($query);
