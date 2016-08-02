@@ -169,6 +169,17 @@ class Courses extends CI_Controller {
     }
 
 
+    /*Добавление вопроса тестирования к лекции*/
+    function QuestionAdd($lecture_id)
+    {
+
+    }
+
+    /*редактирование вопроса тестирования*/
+    function QuestionEdit($lecture_id,$question_id)
+    {
+
+    }
 
 
 	public function index($id="",$lecture_id="",$question_id="")
@@ -237,11 +248,20 @@ class Courses extends CI_Controller {
                                 /*Для админа это редактирование вопроса*/
                                 if($this->auth_model->IsAdmin())
                                 {
-                                    $this->lecture_edit($id,$lecture_id);
+                                    if($question_id=='add')
+                                    {
+                                        $this->QuestionAdd($lecture_id);
+                                    }
+                                    else
+                                    {
+                                        $this->QuestionEdit($lecture_id,$question_id);
+                                    }
                                 }
                                 else
                                 {
-                                    $this->lecture_view_user($id,$lecture_id);
+                                    $this->load->view('head', $this->data);
+                                    show_404();
+                                    $this->load->view('footer', $this->data);
                                 }
                             }
                             else
