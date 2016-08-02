@@ -162,6 +162,7 @@ class Courses extends CI_Controller {
             $this->data['lecture'] = $this->lectures_model->Get($course_id,$lecture_id);
 
             $this->data['course_id'] = $course_id;
+            $this->data['lecture_id'] = $lecture_id;
             /*шаблон страницы*/
             $this->load->view('lecture/edit', $this->data);
             $this->load->view('footer', $this->data);
@@ -170,9 +171,14 @@ class Courses extends CI_Controller {
 
 
     /*Добавление вопроса тестирования к лекции*/
-    function QuestionAdd($lecture_id)
+    function QuestionAdd($course_id,$lecture_id)
     {
+        $this->data['course_id']=$course_id;
         $this->data['lecture_id']=$lecture_id;
+        $this->data['course'] = $this->courses_model->Get($course_id);
+        $this->data['lecture'] = $this->lectures_model->Get($course_id,$lecture_id);
+
+
         $this->load->view('head', $this->data);
 
         $this->load->view('navbar/navbar', $this->data);
@@ -183,7 +189,7 @@ class Courses extends CI_Controller {
     }
 
     /*редактирование вопроса тестирования*/
-    function QuestionEdit($lecture_id,$question_id)
+    function QuestionEdit($course_id,$lecture_id,$question_id)
     {
 
     }
@@ -257,11 +263,11 @@ class Courses extends CI_Controller {
                                 {
                                     if($question_id=='add')
                                     {
-                                        $this->QuestionAdd($lecture_id);
+                                        $this->QuestionAdd($id,$lecture_id);
                                     }
                                     else
                                     {
-                                        $this->QuestionEdit($lecture_id,$question_id);
+                                        $this->QuestionEdit($id,$lecture_id,$question_id);
                                     }
                                 }
                                 else

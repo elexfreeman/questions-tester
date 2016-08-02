@@ -47,7 +47,11 @@
 
 
 
-    <div class="test-capt w-clearfix">Тест: <span class="edit-test-button">добавить тест</span></div>
+
+        <div class="test-capt w-clearfix">Тест:
+            <a href="<?php echo site_url("courses/".$course_id."/".$lecture_id."/add") ?>"><span class="edit-test-button">добавить тест</span></a>
+        </div>
+
     <div class="tests-admin">
         <div class="test-item">
             <div class="test-question w-clearfix"><span class="w-clearfix test-edit"><span class="test-edit">Редактировать</span></span><strong>Вопрос

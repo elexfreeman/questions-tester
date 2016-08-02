@@ -670,12 +670,13 @@
 }
 
 .breadcrumbs {
-    display: block;
-    width: 900px;
-    margin-right: auto;
-    margin-left: auto;
-    font-size: 19px;
-    font-weight: 400;
+	display: block;
+	width: 900px;
+	margin-right: auto;
+	margin-left: auto;
+	font-size: 19px;
+	font-weight: 400;
+	margin-top: 20px;
 }
 
 .bread-link {
